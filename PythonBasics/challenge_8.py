@@ -8,3 +8,4 @@ b = 0.3
 
 # print(a * 3 == b)
 print(isclose(a * 3, b, rel_tol=0.02))
+
