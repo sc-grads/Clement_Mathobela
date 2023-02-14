@@ -8,7 +8,6 @@ def my_prime(n):
             break
     return prime # returns True or False
 
-
 my_list = list()
 for n in range(1000000, 100000000):
    if my_prime(n):
