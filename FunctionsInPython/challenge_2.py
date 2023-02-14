@@ -16,7 +16,6 @@ def perfect_number(n):
     else:
         return False
 
-
 # calling the function
 n = int(input('Enter a value:'))
 if perfect_number(n):
