@@ -7,7 +7,6 @@ with open('file.txt') as file:
             pass
         else:
             new_list.append(i)
-
     with open('new_file', 'w') as f:
 
         content = f.write(''.join(new_list))
