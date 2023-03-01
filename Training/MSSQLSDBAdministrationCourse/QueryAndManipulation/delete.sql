@@ -22,3 +22,8 @@ DELETE TOP(18000) FROM Customer
 
 ROLLBACK
 Commit
+
+Begin Tran
+DELETE Customer
+TRUNCATE TABLE Customer
+Commit
