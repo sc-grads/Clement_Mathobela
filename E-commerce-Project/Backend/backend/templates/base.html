@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device wifth,initial-scale=1"/>
+	<title>{% block title %}Home{% endblock %}</title>
+	
+	
+</head>
+<body>
+	<nav>
+	
+		<div class="" id="">
+			<div class="">
+				<a class="" id="login" href="/login">Login</a>
+				<a class="" id="signUp" href="/sign-up">Register</a>
+				<a class="" id="logout" href="/logout">Logout</a>
+				<a class="" id="home" href="/">Home</a>
+				
+			</div>
+		
+		
+		</div>
+		
+	
+	</nav>
+	
+	<div class="container">
+	
+		{% block content %}
+		
+		{% endblock %}
+	
+	</div>
+	
+
+
+</body>
+
+</html>
