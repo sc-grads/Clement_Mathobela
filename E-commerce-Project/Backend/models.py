@@ -13,3 +13,12 @@ class Customer(db.Model):
 
     def __repr__(self):
         return f"Customer(customer_id={self.customer_id}, firstName='{self.firstName}', lastName='{self.lastName}', email='{self.email}', user_password='{self.user_password}')"
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+    def __repr__(self):
+        return f"<User {self.username}>"

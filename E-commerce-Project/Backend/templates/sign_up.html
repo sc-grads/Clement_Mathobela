@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Sign Up
+
+{% endblock %}
 
 {% block content %}
-  <form method="POST">
+  <form method="POST" action="{{ url_for('register') }}">
     <h3 align="center">Register</h3>
     <div class="">
       <label for="email">Email Address</label>
