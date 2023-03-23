@@ -1,0 +1,195 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2023 9:06:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LSF0DGJ"
+  DTS:CreatorName="DESKTOP-LSF0DGJ\Clement Mathobela"
+  DTS:DTSID="{51F91B86-6855-45FE-A233-7F60FE2CF0BE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{129D7D2E-C9C1-40E4-B6FB-AC0E44A0FE2B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Employees.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{EFB69329-E62C-4FF7-9373-99D0E81982AB}"
+      DTS:ObjectName="Employees.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Clement Mathobela\Desktop\Projects\Flow control\Employees.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_copy]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{CD9CF9DA-E792-4048-8E5C-C33183F6624D}"
+      DTS:ObjectName="ETL_copy">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="C:\Users\Clement Mathobela\Desktop\Projects\Flow control\ETL_copy" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[import]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D53A0573-C322-4D7A-A681-2D67B1C3E0C5}"
+      DTS:ObjectName="import">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\Clement Mathobela\Desktop\Projects\ETL\import" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[this]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{3A7F1670-A0BB-47C9-8D04-E72FAFEE5FD3}"
+      DTS:ObjectName="this">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="C:\Users\Clement Mathobela\Desktop\Projects\Flow control\this" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy File"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{501C701F-A980-43D0-B109-03416CF35EB6}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy File"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{EFB69329-E62C-4FF7-9373-99D0E81982AB}"
+          TaskDestinationPath="{CD9CF9DA-E792-4048-8E5C-C33183F6624D}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Copy Folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{A6507173-8239-4C7B-9465-B6A08CB6A560}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Folder"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CopyDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{D53A0573-C322-4D7A-A681-2D67B1C3E0C5}"
+          TaskDestinationPath="{CD9CF9DA-E792-4048-8E5C-C33183F6624D}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Dir"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{1A742A88-6387-48F7-BBA5-05477A843642}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dir"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{3A7F1670-A0BB-47C9-8D04-E72FAFEE5FD3}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete Dir"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{2CF5DA31-0AA9-472B-ABC3-A35286220C9C}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Dir"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteDirectory"
+          TaskSourcePath="{3A7F1670-A0BB-47C9-8D04-E72FAFEE5FD3}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\File System Task"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{BE603367-31C7-4FF7-956F-E13FBC719FF6}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteDirectoryContent"
+          TaskSourcePath="{CD9CF9DA-E792-4048-8E5C-C33183F6624D}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="137.333333333334,42.6666666666667"
+          Id="Package\Copy Folder"
+          TopLeft="38.1249994318932,46.5263166652162" />
+        <NodeLayout
+          Size="125.333333333334,42.6666666666667"
+          Id="Package\Copy File"
+          TopLeft="43.1249993573874,131.368423525316" />
+        <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\Create Dir"
+          TopLeft="50.6249992456287,208.000003915084" />
+        <NodeLayout
+          Size="126.666666666667,42.6666666666667"
+          Id="Package\Delete Dir"
+          TopLeft="238.749996442348,38.3157901948839" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\File System Task"
+          TopLeft="273.12499593012,141.631581613232" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
