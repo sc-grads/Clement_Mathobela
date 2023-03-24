@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2023 10:11:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LSF0DGJ"
+  DTS:CreatorName="DESKTOP-LSF0DGJ\Clement Mathobela"
+  DTS:DTSID="{EE1BC743-08B6-4DC2-AAD7-ECEFECAF1959}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{9EEC2EE8-B2DE-42AA-ADBA-57476136A9FD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager]"
+      DTS:CreationName="HTTP"
+      DTS:DTSID="{59F22459-91B1-4EAB-BE3F-89649BD2FDEB}"
+      DTS:ObjectName="HTTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="https://www.google.com/">
+          <DTS:HttpConnection
+            DTS:ServerURL="https://www.google.com/">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxF6TfwDJkOz1KemYz2qPQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAMz/qt+rnUgzja/jymtpZHYtvHbmuM5FFCmXHb6yUPPQAAAAAOgAAAAAIAACAAAACyoRapeOkxU6WsxyAEOJ+rKa+xU5xKL3sF8U1+VrJ49xAAAADdwrECclFm2U94QVO0c7msQAAAAEUpSG3hwxsz1ZaZM6davunAfpMXP+HlhxlGlHmC26D3gQaM5Rsqh9uZn2jYnAr0IkhZKWYm51XwjpA2O/33ofc</DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuxF6TfwDJkOz1KemYz2qPQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB4iknCwL+YKjK8XI44GhBRhgn6yO1tkqZNpmRzjeOZSAAAAAAOgAAAAAIAACAAAAAMhPaBkhGDvOxTgwzKOHV7pO2dWwU24+NQTiBCJc7K4BAAAAA32FpNiPTB+4Sp0UGbjzEiQAAAAO5wayhlPQ73LYKSbGD3NtHZX8g4ZDlPrK9pefGYIqLVZ8QHF10ck6Axc7tA5mXJUkxfAA7cBb54bvm1oDgoxNQ</DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Web Service Task"
+      DTS:CreationName="Microsoft.WebServiceTask"
+      DTS:Description="Web Service Task"
+      DTS:DTSID="{1C95B544-26AF-43CB-A199-FACD161AADFD}"
+      DTS:ExecutableType="Microsoft.WebServiceTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Web Service Task"
+      DTS:TaskContact="Web Service Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <WSTask:WebServiceTaskData
+          WSTask:ConnectionName="{59F22459-91B1-4EAB-BE3F-89649BD2FDEB}" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Web Service Task"
+          TopLeft="235.624996488914,93.7368438696267" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
