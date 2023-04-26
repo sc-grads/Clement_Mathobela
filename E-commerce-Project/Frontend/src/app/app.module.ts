@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +17,11 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
+import { NavbarService } from './navbar/navbar.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,11 +35,19 @@ import { LoginComponent } from './login/login.component';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ProductFormComponent
+  
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
@@ -40,11 +56,17 @@ import { LoginComponent } from './login/login.component';
       { path: 'order-success', component: OrderSuccessComponent },
       { path: 'login', component: LoginComponent },
       { path: 'admin/products', component: AdminProductsComponent },
-      { path: 'admin/orders', component: AdminOrdersComponent }
-
-    ])
+      { path: 'admin/orders', component: AdminOrdersComponent },
+      { path: 'my/orders', component: MyOrdersComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'admin/products/new', component: ProductFormComponent }
+    ]),
+    NgbModule
   ],
-  providers: [],
+
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
