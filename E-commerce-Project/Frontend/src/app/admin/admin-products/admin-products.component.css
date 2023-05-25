@@ -1,0 +1,59 @@
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  width: 226.667px;
+  height: 349.323px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(77, 77, 79, 0.08), 0 0 2px 0 rgba(77, 77, 79, 0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+  padding: 8px; /* Added padding */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  object-fit: cover;
+}
+
+.product-details {
+  flex-grow: 1; /* Allow the details section to grow */
+}
+
+.edit-btn,
+.delete-btn {
+  display: inline-block;
+  padding: 6px 10px; /* Adjust the padding to reduce button size */
+  background-color: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px; /* Adjust the font size to reduce button size */
+  cursor: pointer;
+  margin-top: 10px; /* Adjust the margin as desired */
+  text-align: center; /* Center the text horizontally */
+  line-height: normal; /* Reset the line-height to normal */
+  outline: none; /* Remove the inner outline */
+}
+
+.edit-btn {
+  margin-right: 5px; /* Add space between edit and delete buttons */
+}
+
+  .edit-btn:hover,
+  .delete-btn:hover {
+    background-color: #0077cc;
+  }

@@ -1,2 +1,22 @@
 
 <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+<hr />
+<div class="product-grid">
+  <div *ngFor="let product of products" class="product-item">
+    <img src="{{ product.picture }}" alt="{{ product.name }}" class="product-image">
+    <div class="product-details">
+      <h6>{{ product.name }} - {{product.color}}</h6>
+      <p>Price: R{{ product.price }} <em>In Stock:{{ product.stock }}</em></p>
+      <button class="edit-btn">
+        Edit
+      </button>
+      <button class="delete-btn" (click)="deleteProduct(product)">
+        Delete
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+

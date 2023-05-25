@@ -39,7 +39,7 @@ def register():
 
     db_manager.insert_user(email, first_name, last_name, password)
 
-    response = jsonify({'message': 'User registered successfully'})
+    response = jsonify({'message': 'Registered successfully'})
     return response
 
 
@@ -67,7 +67,7 @@ def login():
 @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
 def get_user_role():
     email = request.args.get('email')
-    db_manager = DatabaseManager(server='DESKTOP-LSF0DGJ', database='MobileStore')  # replace <your connection string> with the actual connection string
+    db_manager = DatabaseManager(server='DESKTOP-LSF0DGJ', database='MobileStore')  
     user_role = None  # initialize user_role with None
     if email:
         user_role = db_manager.get_user_role(email)
@@ -91,11 +91,85 @@ def insert_product():
 
     db_manager.insert_product(name,brand, description, picture, color, stock, price)
 
-    response = jsonify({'message': 'Product entered successfully'})
+    response = jsonify({'message': 'Product added successfully'})
+    return response
+
+
+@app.route('/deleteProduct', methods=['POST'])
+def delete_product():
+    data = request.json
+    name = data.get('name')
+    color = data.get('color')
+
+    # Assuming you have a DatabaseManager class that handles database operations
+    db_manager = DatabaseManager(server='DESKTOP-LSF0DGJ', database='MobileStore')
+    db_manager.delete_product(name, color)  # Pass both name and color parameters
+
+    response = jsonify({'message': 'Product successfully deleted'})
+    return response
+
+
+@app.route('/products', methods=['GET'])
+def get_products():
+    rows = db_manager.get_products()
+    products = []
+    for row in rows:
+        product = {
+            'id': row[0],
+            'name': row[1],
+            'brand': row[2],
+            'price': row[3],
+            'description': row[4],
+            'picture': row[5],
+            'color': row[6],
+            'stock': row[7]
+        }
+        products.append(product)
+    return jsonify(products)
+
+
+@app.route('/addToCart', methods=['GET','POST'])
+def add_to_cart():
+    data = request.json
+    user_email = data.get('user_email')
+    product_id = data.get('product_id')
+    quantity = data.get('quantity')
+    total_amount = data.get('total_amount')
+    
+    db_manager = DatabaseManager(server='DESKTOP-LSF0DGJ', database='MobileStore')
+
+    user_id = db_manager.fetch_user_id(user_email)
+    if user_id is None:
+        return jsonify({'message': 'User not found'}), 404
+
+    db_manager.add_to_cart(user_id, product_id, quantity, total_amount)
+
+    response = jsonify({'message': 'Product added to cart successfully'})
     return response
 
 
 
+
+@app.route('/delete-from-cart', methods=['POST'])
+def delete_from_cart():
+    data = request.json
+    cart_id = data.get('cart_id')
+
+    db_manager.delete_from_cart(cart_id)
+
+    response = jsonify({'message': 'Item successfully deleted from cart'})
+    return response
+
+@app.route('/get-cart-items', methods=['POST'])
+def get_cart_items():
+    data = request.json
+    user_id = data.get('user_id')
+
+    cart_items = db_manager.get_cart_items(user_id)
+
+    response = jsonify(cart_items)
+    return response
+    
 
 
 if __name__ == '__main__':
