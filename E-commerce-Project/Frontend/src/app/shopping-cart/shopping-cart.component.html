@@ -1,1 +1,8 @@
-<p>shopping-cart works!</p>
+<div *ngFor="let item of cartItems">
+
+  <img src="{{ item.product_picture }}" alt="{{ item.product_name }}" class="product-image">
+  <h6>{{ item.product_name }} - {{item.product_color}}</h6>
+  <p>Price: {{ item.price }}</p>
+  <p>Quantity: {{ item.quantity }}</p>
+  <p>Total Amount: {{ item.total_amount }}</p>
+</div>
